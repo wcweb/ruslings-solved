@@ -1,21 +1,26 @@
 // strings3.rs
 // 执行 `rustlings hint strings3` 或在观察模式下使用 `hint` 子命令来获取提示。
 
-// I AM NOT DONE
 
-fn trim_me(input: &str) -> String {
+fn trim_me(input: &str) -> String { 
     // TODO: 删除字符串两端的空格！
-    ???
+    (*input.trim()).to_string()
 }
 
 fn compose_me(input: &str) -> String {
     // TODO: 添加 " world!" 到字符串！有好几种方法可以做到！
-    ???
+    // format!("{}{}", input, " world!")
+    // let mut out = input.to_string();
+    // out.push_str(" world!");
+    // out.to_string()
+    let mut o = String::from(input);
+    o.push_str(" world!");
+    o.to_string()
 }
 
 fn replace_me(input: &str) -> String {
     // TODO: 将字符串中的 "cars" 替换为 "balloons"！
-    ???
+    input.replace("cars", "balloons")
 }
 
 #[cfg(test)]

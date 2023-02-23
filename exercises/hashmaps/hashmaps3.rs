@@ -13,8 +13,6 @@
 
 // 执行 `rustlings hint hashmaps3` 或在观察模式下使用 `hint` 子命令来获取提示。
 
-// I AM NOT DONE
-
 use std::collections::HashMap;
 
 // 一个存储队伍名字和它的得分详情的结构。
@@ -37,6 +35,32 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // TODO: 使用从当前行提取的详细信息填充得分表。
         // 请记住，队伍1的得分将会是队伍2的丢分，
         // 同样，队伍2的得分也将会是队伍1的丢分。
+        if scores.contains_key(&team_1_name) {
+            scores.insert(team_1_name.clone(), Team {
+                name: team_1_name.clone(), 
+                goals_scored: scores[&team_1_name].goals_scored + team_1_score,
+                goals_conceded: scores[&team_1_name].goals_conceded + team_2_score
+            });
+        } else {
+            scores.insert(team_1_name.clone(), Team {
+                name: team_1_name.clone(), 
+                goals_scored: team_1_score,
+                goals_conceded: team_2_score
+            });
+        }
+        if scores.contains_key(&team_2_name) {
+            scores.insert(team_2_name.clone(), Team {
+                name: team_2_name.clone(), 
+                goals_scored: scores[&team_2_name].goals_scored + team_2_score,
+                goals_conceded: scores[&team_2_name].goals_conceded + team_1_score
+            });
+        } else {
+            scores.insert(team_2_name.clone(), Team {
+                name: team_2_name.clone(), 
+                goals_scored: team_2_score,
+                goals_conceded: team_1_score
+            });
+        }
     }
     scores
 }

@@ -15,11 +15,10 @@
 //
 // 执行 `rustlings hint box1` 或在观察模式下使用 `hint` 子命令来获取提示。
 
-// I AM NOT DONE
-
+use crate::List::{Cons, Nil};
 #[derive(PartialEq, Debug)]
 pub enum List {
-    Cons(i32, List),
+    Cons(i32, Box<List>),
     Nil,
 }
 
@@ -32,11 +31,11 @@ fn main() {
 }
 
 pub fn create_empty_list() -> List {
-    todo!()
+    List::Nil
 }
 
 pub fn create_non_empty_list() -> List {
-    todo!()
+    Cons(1, Box::new(Cons(2, Box::new(Nil))))
 }
 
 #[cfg(test)]

@@ -11,11 +11,14 @@
 // 这次没有提示！
 
 
-// I AM NOT DONE
-
 // 将你的函数放在这里！
-// fn calculate_price_of_apples {
-
+fn calculate_price_of_apples(n:u32) -> u32 {
+    if n > 40 {
+        n
+    } else {
+        n * 2
+    }
+}
 // 不要修改这个函数
 #[test]
 fn verify_test() {
